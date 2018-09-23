@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .darkness{
+            background-color: black;
+            color: white;
+            font: sans-serif;
+        }
+        
+        .light{
+            background-color: lemonchiffon;
+            color: blue;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body id="mainContent" class="darkness">
+    <img id="lightBulb" src="img/bulboff.gif" width="150px">
+    <div>
+        <button onclick="bulbon()">lights on!</button>
+        <button onclick="bulboff()">lights off!</button>
+    </div>
+    
+    
+    <div id="status"> </div>
+    
+    <script>
+    
+    let mainContent = document.getElementById("mainContent"); //another way to do the document.getElementById//
+        function bulbon(){
+            document.getElementById("lightBulb").src="img/bulbon.gif";  //change the source
+            document.getElementById("status").innerHTML="<h2>It's too bright!!</h2>";  //add text into the div that has this id "status"
+            mainContent.classList.remove("darkness"); //remove the class darkness
+            mainContent.classList.add("light"); //remove the class light
+        }
+        
+        function bulboff(){
+            document.getElementById("lightBulb").src="img/bulboff.gif";
+            document.getElementById("status").textContent="<h2>It's dark!!</h2>" //adds content but doesn't count the html<> tags as does .innerHTML
+            mainContent.classList.remove("light");
+            mainContent.classList.add("darkness");
+        }
+    </script>
+</body>
+</html>
+
+<!-- Your challenge is to modify the bulbon() and bulboff()
+   functions so that the innerHTML of the status div changes.
+   When the light is off, the div should contain a h2 with the
+   text: "It's dark!!"
+   When the light is on, the div should contain a h2 with the
+   text: "It's too bright!!"
+-->

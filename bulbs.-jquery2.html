@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .darkness {
+            color: black;
+            font: sans-serif;
+        }
+
+        .light {
+            background-color: lemonchiffon;
+            color: blue;
+            font-family: sans-serif;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 35px;
+            font-size: 40px;
+        }
+        
+        .switches{
+            margin-top: 25px;
+            margin-left: 20px;
+            padding-left: 27px;
+        }
+        
+        .lightbulbs{
+            margin-top: 35px;
+            margin-left: 5px;
+            padding-left: 5px;
+        }
+        
+    </style>
+</head>
+
+<body id="mainContent" class="darkness">
+    <div>
+        <div class="row switches">
+            <div class="col-4">
+                <img id="switch1" src="img/switch_off.png" width="100">
+            </div>
+            <div class="col-4">
+                <img id="switch2" src="img/switch_off.png" width="100">
+            </div>
+            <div class="col-4">
+                <img id="switch3" src="img/switch_off.png" width="100">
+            </div>
+        </div>
+
+        <div class="row lightbulbs">
+            <div class="col-4">
+                <img id="lightBulb1" src="img/bulboff.gif" width="150px">
+            </div>
+            <div class="col-4">
+                <img id="lightBulb2" src="img/bulboff.gif" width="150px">
+            </div>
+            <div class="col-4">
+                <img id="lightBulb3" src="img/bulboff.gif" width="150px">
+            </div>
+        </div>
+        <p id="status"> </p>
+    </div>
+
+
+
+
+    <script>
+        $("#switch1").click(function() {
+            if ($("#switch1").attr("src") == "img/switch_off.png") {
+                $("#switch1").attr("src", "img/switch_on.png");
+                bulbon1();
+            }
+            else {
+                $("#switch1").attr("src", "img/switch_off.png");
+                bulboff1();
+            }
+        });
+
+
+        $("#switch2").click(function() {
+            if ($("#switch2").attr("src") == "img/switch_off.png") {
+                $("#switch2").attr("src", "img/switch_on.png");
+                bulbon2();
+            }
+            else {
+                $("#switch2").attr("src", "img/switch_off.png");
+                bulboff2();
+            }
+        });
+
+
+        $("#switch3").click(function() {
+            if ($("#switch3").attr("src") == "img/switch_off.png") {
+                $("#switch3").attr("src", "img/switch_on.png");
+                bulbon3();
+            }
+            else {
+                $("#switch3").attr("src", "img/switch_off.png");
+                bulboff3();
+            }
+        });
+
+
+        function bulbon1() {
+            $("#lightBulb1").attr("src", "img/bulbon.gif");
+                $("#mainContent").removeClass("darkness").addClass("light");
+            $("#status").text("it's too bright here!");
+        }
+        
+        function bulbon2() {
+            $("#lightBulb2").attr("src", "img/bulbon.gif");
+                $("#mainContent").removeClass("darkness").addClass("light");
+            $("#status").text("it's too bright here!");
+        }
+        
+        function bulbon3() {
+            $("#lightBulb3").attr("src", "img/bulbon.gif");
+                $("#mainContent").removeClass("darkness").addClass("light");
+            $("#status").text("it's too bright here!");
+        }
+        
+        
+        function bulboff1() {
+            $("#lightBulb1").attr("src", "img/bulboff.gif");
+                $("#mainContent").removeClass("light").addClass("darkness");
+            $("#status").text("it's too dark!");
+        }
+        
+        function bulboff2() {
+            $("#lightBulb2").attr("src", "img/bulboff.gif");
+                $("#mainContent").removeClass("light").addClass("darkness");
+            $("#status").text("it's too dark!");
+        }
+        
+        function bulboff3() {
+            $("#lightBulb3").attr("src", "img/bulboff.gif");
+                $("#mainContent").removeClass("light").addClass("darkness");
+            $("#status").text("it's too dark!");
+        }
+        
+        // function bulbon() {
+
+        //     $("#lightBulb1, #lightBulb2, #lightBulb3").each(function() {
+        //         $(this).attr("src", "img/bulbon.gif");
+        //         $("#mainContent").removeClass("darkness").addClass("light");
+        //     });
+        //     $("#status").text("it's too bright here!");
+        // }
+
+        //************************************************* JavaScript selectors
+
+
+        //       let mainContent = document.getElementById("mainContent"); //another way to do the document.getElementById//
+        // function bulbon(){
+        //     let mainContent = document.getElementById("mainContent"); //another way to do the document.getElementById//
+        // function bulbon(){
+        //     document.getElementById("lightBulb").src="img/bulbon.gif";  //change the source
+        //     document.getElementById("status").innerHTML="<h2>It's too bright!!</h2>";  //add text into the div that has this id "status"
+        //     mainContent.classList.remove("darkness"); //remove the class darkness
+        //     mainContent.classList.add("light"); //remove the class light
+        // }
+
+        // function bulboff(){
+        //     document.getElementById("lightBulb").src="img/bulboff.gif";
+        //     document.getElementById("status").textContent="<h2>It's dark!!</h2>" //adds content but doesn't count the html<> tags as does .innerHTML
+        //     mainContent.classList.remove("light");
+        //     mainContent.classList.add("darkness");
+        // }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<!-- Your challenge is to modify the bulbon() and bulboff()
+   functions so that the innerHTML of the status div changes.
+   When the light is off, the div should contain a h2 with the
+   text: "It's dark!!"
+   When the light is on, the div should contain a h2 with the
+   text: "It's too bright!!"
+-->
